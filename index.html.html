@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TM Services | Chassell, MI</title>
+  <style>
+    :root {
+      --green: #234f36;
+      --green-dark: #173624;
+      --tan: #f4ead8;
+      --cream: #fffaf0;
+      --orange: #d9822b;
+      --gray: #5f665f;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: #1f2a24;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(23, 54, 36, 0.82), rgba(23, 54, 36, 0.82)), url('https://images.unsplash.com/photo-1500595046743-cd271d694e30?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 28px 20px 80px;
+    }
+
+    nav {
+      max-width: 1120px;
+      margin: 0 auto 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 4.8rem);
+      max-width: 850px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffcc00;
+      color: #173624;
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--green-dark);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      color: var(--gray);
+      max-width: 780px;
+      margin-bottom: 36px;
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 12px 24px rgba(35, 79, 54, 0.08);
+      border: 1px solid #eadfc9;
+    }
+
+    .card h3 {
+      color: var(--green-dark);
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 1.15rem;
+      margin: 12px 0;
+    }
+
+    .card ul {
+      margin-left: 20px;
+      color: #334139;
+    }
+
+    .band {
+      background: var(--tan);
+    }
+
+    .service-area {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .area-box {
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 22px;
+      padding: 34px;
+    }
+
+    .area-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .area-box p {
+      margin-bottom: 12px;
+    }
+
+    .quote-box {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+
+    .quote-box input,
+    .quote-box select,
+    .quote-box textarea {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: 1px solid #d7c9ad;
+      font-size: 1rem;
+    }
+
+    .quote-box textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .quote-box button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-top: 18px;
+    }
+
+    footer {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 34px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--tan);
+    }
+
+    .text-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    .text-button:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 50px;
+      }
+
+      .nav-links a {
+        display: inline-block;
+        margin: 8px 14px 0 0;
+      }
+
+      .service-area {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="TM Services" style="height:60px;">
+      </div>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#area">Service Area</a>
+        <a href="#quote">Get a Quote</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="badge">📱 Text Preferred</div>
+      <div class="badge" style="background:#234f36;color:#ffffff;">🚜 Farm & Livestock Services</div>
+      <div class="badge" style="background:#d9822b;color:#ffffff;">🛠️ Custom Jobs Welcome</div>
+
+      <h1>Driveways, Snow Removal, Livestock Hauling & Farm Work — Done Right.</h1>
+      <p>Serving the Keweenaw and Northern Wisconsin with reliable equipment work, cattle hauling, and property services. From driveways to livestock to odd jobs — if you need it done, call or text.</p>
+      <p style="font-weight:700;margin-bottom:20px;">📱 Fastest response is by text</p>
+
+      <div class="button-row">
+        <a class="btn btn-primary" href="tel:9062818543">Call or Text for a Quote</a>
+        <a class="btn btn-secondary" href="#services">View Services</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="container">
+      <h2 class="section-title">Why People Call TM Services</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>✔ Reliable</h3>
+          <p>Shows up, communicates, and gets the job done right.</p>
+        </div>
+        <div class="card">
+          <h3>✔ Local Experience</h3>
+          <p>Understands UP winters, rural roads, farms, and camp properties.</p>
+        </div>
+        <div class="card">
+          <h3>✔ Fair Pricing</h3>
+          <p>Clear quotes based on the job — no surprises.</p>
+        </div>
+        <div class="card">
+          <h3>✔ Farm + Property Work</h3>
+          <p>Handles everything from driveways to livestock hauling and farm services.</p>
+        </div>
+      </div>
+      <p class="section-subtitle" style="margin-top:20px;">Now booking upcoming jobs — schedule early.</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="section-subtitle">From seasonal snow removal to driveway work, skid steer projects, garbage pickup, mowing, and backhoe work — TM Services helps homeowners, camps, rentals, farms, and small businesses keep their property maintained.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Skid Steer, Boom & Truss Work</h3>
+          <p>Great for grading, spreading gravel, moving dirt, lot cleanup, brush clearing, lifting, placement, truss setting, and small excavation support.</p>
+          <ul>
+            <li>Gravel spreading</li>
+            <li>Brush and debris cleanup</li>
+            <li>Light land clearing</li>
+            <li>Material moving</li>
+            <li>Boom work</li>
+            <li>Truss setting support</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Driveway Repair & Maintenance</h3>
+          <p>Keep driveways safe and usable with grading, gravel touch-ups, pothole repair, washout repair, and seasonal maintenance.</p>
+          <ul>
+            <li>Gravel driveway grading</li>
+            <li>Pothole filling</li>
+            <li>Culvert area cleanup</li>
+            <li>Stone spreading</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Weekly Garbage Pickup</h3>
+          <p>Simple weekly pickup options for homes, camps, rentals, and small businesses in approved service areas.</p>
+          <ul>
+            <li>Weekly residential pickup</li>
+            <li>Camp and seasonal service</li>
+            <li>Bag or bin options</li>
+            <li>Bulk item add-ons by quote</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Winter Snow Removal</h3>
+          <p>Driveway plowing and snow cleanup for residential properties, seasonal homes, camps, and small commercial lots.</p>
+          <ul>
+            <li>Per-push driveway plowing</li>
+            <li>Seasonal snow contracts</li>
+            <li>End-of-driveway cleanup</li>
+            <li>Snow pile pushback</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Backhoe Work</h3>
+          <p>Backhoe services for trenching, digging, drainage projects, culvert work, light excavation, and cleanup jobs.</p>
+          <ul>
+            <li>Trenching</li>
+            <li>Culvert work</li>
+            <li>Drainage support</li>
+            <li>Small excavation jobs</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Grass Cutting & Yard Work</h3>
+          <p>Routine mowing and property upkeep for residential yards, camps, rental properties, and seasonal lots.</p>
+          <ul>
+            <li>Weekly or biweekly mowing</li>
+            <li>Camp yard maintenance</li>
+            <li>Rental property mowing</li>
+            <li>Seasonal cleanup by quote</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Livestock Hauling</h3>
+          <p>Safe and reliable transport for cattle, pigs, and other livestock across the Keweenaw and Northern Wisconsin.</p>
+          <ul>
+            <li>Cattle hauling & delivery</li>
+            <li>Pig transport</li>
+            <li>Farm-to-farm or sale delivery</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Farm Cleanout</h3>
+          <p>Cleanout services for barns, lots, and properties needing debris or waste removal.</p>
+          <ul>
+            <li>Barn cleanout</li>
+            <li>Lot clearing</li>
+            <li>Debris hauling</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>AI Breeding Services</h3>
+          <p>Artificial insemination services for cattle and pigs. Call or text to discuss availability and scheduling.</p>
+          <ul>
+            <li>Cattle AI services</li>
+            <li>Swine AI services</li>
+            <li>On-site service</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Cattle Sales</h3>
+          <p>Personal cattle sales available. Reach out directly for current availability and pricing.</p>
+          <ul>
+            <li>Various cattle types</li>
+            <li>Local delivery available</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="section-subtitle" style="margin-top:20px;">Additional yard work, farm work, hauling, odd jobs, and other services may be available — call or text to inquire.</p>
+    </div>
+  </section>
+
+  <section id="pricing" class="band">
+    <div class="container">
+      <h2 class="section-title">Starting Prices</h2>
+      <p class="section-subtitle">Final pricing depends on location, driveway length, travel time, access, material needs, snow depth, disposal requirements, livestock needs, equipment requirements, and job size. These are starting ranges for quotes.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Skid Steer, Boom & Truss Work</h3>
+          <div class="price">Starting at $110–$150/hour</div>
+          <p>2-hour minimum recommended. Includes skid steer, boom lifting, and basic truss support. Travel, materials, and complex lifts may increase pricing.</p>
+        </div>
+
+        <div class="card">
+          <h3>Driveway Grading</h3>
+          <div class="price">Starting at $150–$350</div>
+          <p>Small residential driveway touch-ups. Gravel/material billed separately if needed.</p>
+        </div>
+
+        <div class="card">
+          <h3>Garbage Pickup</h3>
+          <div class="price">Weekly from $25–$40</div>
+          <p>Residential weekly service. Seasonal camp and multiple-bin pricing available by quote.</p>
+        </div>
+
+        <div class="card">
+          <h3>Snow Removal</h3>
+          <div class="price">Per push from $40–$85</div>
+          <p>Seasonal contracts available. Long driveways, heavy snow, and ice conditions may affect pricing.</p>
+        </div>
+
+        <div class="card">
+          <h3>Backhoe Work</h3>
+          <div class="price">Starting at $110–$150/hour</div>
+          <p>Great for trenching, culverts, drainage, digging, and small excavation jobs.</p>
+        </div>
+
+        <div class="card">
+          <h3>Grass Cutting</h3>
+          <div class="price">Starting at $45–$75/cut</div>
+          <p>Weekly and biweekly lawn care available. Larger lots and camp properties quoted individually.</p>
+        </div>
+
+        <div class="card">
+          <h3>Livestock Hauling / Farm Services</h3>
+          <div class="price">Call/Text for Quote</div>
+          <ul>
+            <li><strong>Base trip:</strong> $75–$150 minimum local trip</li>
+            <li><strong>Mileage:</strong> $2.50–$4.00 per loaded mile</li>
+            <li><strong>Per head:</strong> $15–$35 each for short-haul cattle/pigs</li>
+            <li><strong>Load/Unload:</strong> $25–$75 depending on setup</li>
+            <li><strong>Wait time:</strong> $50–$75/hour</li>
+            <li><strong>After-hours/urgent:</strong> +15–30%</li>
+            <li><strong>Boom/Truss work:</strong> typically $110–$175/hr depending on lift and job complexity</li>
+          </ul>
+          <p>Final price depends on distance, head count, equipment, lift requirements, access, and handling conditions.</p>
+        </div>
+      </div>
+
+      <p class="note">Prices are starting ranges only. Final quotes depend on location, access, job size, travel, materials, weather, disposal needs, livestock handling conditions, and equipment requirements.</p>
+    </div>
+  </section>
+
+  <section id="area">
+    <div class="container service-area">
+      <div>
+        <h2 class="section-title">Local Service Area</h2>
+        <p class="section-subtitle">Based in Chassell, MI and serving the surrounding Keweenaw area with flexible scheduling for residential, seasonal, farm, camp, rental, and small commercial needs.</p>
+        <div class="cards">
+          <div class="card">
+            <h3>Michigan</h3>
+            <p>Chassell, Houghton, Hancock, Calumet, Lake Linden, Hubbell, Dollar Bay, Baraga, L’Anse, and surrounding Keweenaw/Houghton County communities.</p>
+          </div>
+          <div class="card">
+            <h3>Northern Wisconsin</h3>
+            <p>Select Northern Wisconsin service available by quote depending on route, distance, season, and job size.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-box">
+        <h3>Why Choose TM Services?</h3>
+        <p><strong>Local and dependable:</strong> Practical help from someone who understands UP winters, gravel roads, farms, camps, and rural property needs.</p>
+        <p><strong>Year-round services:</strong> Snow in winter, driveway and yard work in spring/summer/fall, hauling, farm support, and garbage pickup options all year.</p>
+        <p><strong>Fair quotes:</strong> Clear pricing based on the job, location, travel, equipment, and materials needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="band">
+    <div class="container">
+      <h2 class="section-title">Request a Quote</h2>
+      <p class="section-subtitle">Text is preferred for the fastest response. You can also use the form below to request a quote.</p>
+
+      <div class="quote-box">
+        <form action="mailto:tryanm25@gmail.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="tel" name="phone" placeholder="Phone Number" required />
+          <input type="email" name="email" placeholder="Email Address" />
+          <input type="text" name="location" placeholder="Property Location / Town" required />
+
+          <select name="service" required>
+            <option value="">Select Service Needed</option>
+            <option>Skid Steer, Boom & Truss Work</option>
+            <option>Driveway Repair / Grading</option>
+            <option>Weekly Garbage Pickup</option>
+            <option>Winter Snow Removal</option>
+            <option>Backhoe Work</option>
+            <option>Grass Cutting / Yard Work</option>
+            <option>Livestock Hauling</option>
+            <option>Farm Cleanout</option>
+            <option>AI Breeding Services (Cattle/Pigs)</option>
+            <option>Cattle Sales / Delivery</option>
+            <option>Odd Jobs / Other</option>
+          </select>
+
+          <input type="date" name="requested_date" />
+          <select name="urgency">
+            <option value="">Urgency (Optional)</option>
+            <option>ASAP</option>
+            <option>This Week</option>
+            <option>Flexible</option>
+          </select>
+
+          <textarea name="message" placeholder="Tell us about the job, driveway length, snow/yard conditions, livestock details, hauling needs, or equipment work needed. Text is preferred for fastest response."></textarea>
+          <button class="btn btn-primary" type="submit">Send Quote Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>TM Services</strong> | Chassell, MI</p>
+    <p>Call/Text: <a href="tel:9062818543">(906) 281-8543</a> | Email: <a href="mailto:tryanm25@gmail.com">tryanm25@gmail.com</a></p>
+    <p>Serving Keweenaw County, Houghton County communities, and select Northern Wisconsin areas.</p>
+  </footer>
+
+  <a class="text-button" href="sms:9062818543?body=Hi%20TM%20Services,%20I%20am%20looking%20for%20a%20quote%20for%20[service]%20at%20[location].">📱 Text Now</a>
+</body>
+</html>
